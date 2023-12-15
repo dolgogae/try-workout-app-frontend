@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import React, { ChangeEvent, useState } from 'react'
 import styles from './Input.module.scss';
-import Icon from '../Icon/Icon';
+import { useRouter } from "next/navigation";
 
 interface IInputProps {
   id: string;
@@ -11,13 +11,16 @@ interface IInputProps {
   icon?: 'letter' | 'lock' | 'show' | 'hide';
   email?: boolean;
   password?: boolean;
+  search?: boolean;
   placeholder?: string;
   readonly?: boolean;
   disabled?: boolean;
   value?: string;
   error?: { message: string };
   className?: string;
+  introClassName?: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onSearch: any;
   [x: string]: any;
 }
 
@@ -30,13 +33,17 @@ const Input = ({
   icon,
   email,
   password,
+  search,
+  searchUrl,
   placeholder = '',
   readOnly,
   disabled,
   value,
   error: errorProp,
   className = '',
+  introClassName = '',
   onChange,
+  onSearch,
   ...restProps
 }: IInputProps) => {
 
@@ -45,7 +52,7 @@ const Input = ({
 
   const checkType = () => {
     if (email) {
-      return 'email'
+      return 'email';
     }
 
     if (password) {
@@ -60,9 +67,6 @@ const Input = ({
     onChange(e);
   }
 
-  const iconType = isPasswordVisible ? 'show' : 'hide';
-  const iconLabel = `비밀번호 ${isPasswordVisible ? '표시' : '감춤'}`
-
   return (
     <div className={classNames(styles.formControl, className)}>
       <label
@@ -75,12 +79,12 @@ const Input = ({
       <div
         className={classNames(styles.inputWrapper, errorProp && styles.inputWrapperError)}
       >
-        {icon ? <Icon type={icon} /> : null}
+        {/* {icon ? <Icon type={icon} /> : null} */}
         <input
           id={id}
           type={checkType()}
           name={name}
-          className={classNames(styles.input)}
+          className={classNames(styles.input, introClassName)}
           placeholder={placeholder}
           readOnly={readOnly}
           disabled={disabled}
@@ -96,9 +100,20 @@ const Input = ({
             onClick={() => setIsPasswordVisible(prev => !prev)}
             disabled={disabled}
           >
-            <Icon type={iconType} alt={iconLabel} title={iconLabel} />
+            Show
           </button>
         ) : null}
+
+        {search ? (
+          <button
+            type='button'
+            className={styles.button}
+            onClick={onSearch}
+            disabled={disabled}
+          >
+            Search
+          </button>
+        ) : null} 
       </div>
       {errorProp && (
         <span role='alert' className={styles.error}>

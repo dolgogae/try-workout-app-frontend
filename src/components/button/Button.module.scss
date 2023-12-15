@@ -7,6 +7,7 @@
     border: 0;
     padding: 0.7rem 3rem;
     box-shadow: var(--box-shadow);
+    border-radius: 20px; // 테두리 둥글게 설정
 
     &[disabled] {
         cursor: not-allowed

@@ -1,52 +1,95 @@
 .page {
-    height: 100vh;
-    display: grid;
-    place-items: center;
+  height: 100vh;
+  display: grid;
+  place-items: center;
 
-    .container {
-        width: 576px;
+  .container {
+    width: 350px;
 
-        .logo {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .socialButton {
-            padding: 10px;
-        }
-
-        .form {
-            display: flex;
-            flex-flow: column;
-            width: 100%;
-            max-width: 578px;
-
-            .control {
-                margin-bottom: 20px;
-            }
-
-            .group {
-                display: flex;
-                justify-content: space-between;
-                margin-top: 2px;
-
-                .findLink {
-                    color: var(--color-primary);
-                    text-decoration: none;
-                    font-size: 1.4rem;
-                }
-
-                .findLinkArrow {
-                    margin-left: 6px;
-                    vertical-align: -3px;
-                }
-            }
-
-            .buttonGroup {
-                margin: 2rem 0;
-            }
-
-        }
-
+    .logo {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 50px;
     }
+
+    .introLogo {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .inputLabel {
+      text-align: left;
+      margin-bottom: 10px;
+    }
+    
+    .socialButton {
+      padding: 10px;
+    }
+
+    .form {
+      display: flex;
+      flex-flow: column;
+      width: 100%;
+      max-width: 350px;
+
+      .control {
+        margin-bottom: 20px;
+      }
+
+      .controlIntro {
+        height: 500px;
+      }
+
+      .textarea {
+        columns: 50;
+        // rows: 10;
+        // resize: vertical; // 사용자가 높이를 조절할 수 있도록 설정
+      }
+      
+
+      .group {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 2px;
+        margin-bottom: 5px;
+
+        .findLink {
+          color: var(--color-primary);
+          text-decoration: none;
+          // margin-right: 120px;
+          font-size: 1.2rem;
+        }
+
+        .linkText {
+          color: var(--color-green);
+        }
+
+        .findLinkArrow {
+          margin-left: 6px;
+          vertical-align: -3px;
+        }
+      }
+
+      .buttonGroup {
+        margin: 2rem 0;
+        max-width: 350px;
+        width: 100%;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-gray);
+  border-radius: 20px; // 테두리 둥글게 설정
+  padding: 0.5rem;
+  background-color: var(--light-gray); // 입력 필드 배경을 약한 회색으로 설정
+  max-width: 350px; // 또는 원하는 크기로 설정
+  height: 500px;
+  width: 100%; // 너비를 100%로 설정하여 부모 요소에 맞춤
+  margin: 0 auto; // 가로 중앙 정렬
 }

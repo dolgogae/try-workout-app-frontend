@@ -1,0 +1,22 @@
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  max-width: 300px; // Input 컴포넌트와 동일한 너비 설정
+  gap: 1rem; // 체크박스 간격 설정
+
+  // 체크박스 레이블 스타일
+  .checkboxLabel {
+    font-size: 0.875rem;
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    // 체크박스 자체의 스타일
+    input[type="checkbox"] {
+      margin-right: 0.5rem; // 레이블과의 간격
+    }
+  }
+}

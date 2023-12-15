@@ -1,0 +1,15 @@
+네이버 클라우드 api 사용 신청 주소
+https://guide.ncloud-docs.com/docs/maps-app#Application%EB%93%B1%EB%A1%9D
+
+geocoding(rest API 형태 네이버 지도 제공) 가이드
+https://api.ncloud-docs.com/docs/ai-naver-mapsgeocoding-geocode
+
+web dynamic web 가이드
+https://guide.ncloud-docs.com/docs/maps-web-sdk
+사용 예시 유튜브 강의
+https://www.youtube.com/watch?v=nu_I3hxkyXU
+
+네이버 지역 검색
+https://developers.naver.com/docs/serviceapi/search/local/local.md#%EC%A7%80%EC%97%AD
+
+네이버 지역 검색 api -> web dynamic web

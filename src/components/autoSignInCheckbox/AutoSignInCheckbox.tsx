@@ -1,7 +1,6 @@
 import React, { ChangeEvent } from 'react'
 import styles from './AutoSignInCheckbox.module.scss';
 import Checkbox from '../checkbox/Checkbox';
-import Tooltip from '../tooltip/Tooltip';
 
 interface IAutoSignInCheckboxProps {
     label?: string;
@@ -31,14 +30,6 @@ const AutoSignInCheckbox = ({
                 onChange={onChange}
                 {...restProps}
             />
-            {checked && (
-                <Tooltip
-                    left={-5}
-                    top={24}
-                    orientation={orientation}
-                    message={message}
-                />
-            )}
         </div>
     )
 }

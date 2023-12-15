@@ -1,0 +1,21 @@
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding-left: 0.875rem; // Input 컴포넌트와 정렬을 맞추기 위한 패딩 조정
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.checkbox {
+  margin-right: 0.5rem;
+  accent-color: var(--color-primary);
+}
+
+.checkboxLabel {
+  font-size: 1.25rem;
+  color: var(--font-color);
+}
+
+

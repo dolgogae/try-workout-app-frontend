@@ -1,0 +1,86 @@
+.formControl {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  
+    .label {
+      margin-bottom: 0.5rem;
+      color: var(--font-color);
+      font-size: 0.875rem;
+    }
+  
+    .labelHidden {
+      display: none;
+    }
+  
+    .inputWrapper {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--border-gray);
+      border-radius: 20px;
+      padding: 0.5rem;
+      background-color: var(--light-gray);
+      max-width: 350px;
+      width: 100%;
+      margin: 0 auto;
+    }
+  
+    .inputWrapperError {
+      border-color: var(--color-red);
+    }
+  
+    .input,
+    .textarea { // textarea 스타일 추가
+      flex-grow: 1;
+      border: none;
+      margin-left: 0.5rem;
+      padding: 0.875rem;
+      font-size: 1rem;
+      background-color: var(--light-gray);
+      
+      &::placeholder {
+        color: var(--dark-gray);
+      }
+  
+      &:read-only {
+        color: var(--dark-gray);
+      }
+  
+      &:disabled {
+        cursor: not-allowed;
+        color: var(--dark-gray);
+      }
+    }
+  
+    .textarea { // textarea 특정 스타일
+      resize: vertical; // 사용자가 세로 크기 조절 가능하도록 설정
+    }
+  
+    .button {
+      background: none;
+      border: none;
+      margin-right: 1rem;
+      color: var(--color-forest-green);
+      cursor: pointer;
+    }
+  
+    .error {
+      color: var(--color-red);
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .formControl {
+      .inputWrapper {
+        padding: 0.5rem;
+      }
+  
+      .input,
+      .textarea {
+        margin-left: 0.5rem;
+      }
+    }
+  }
+  

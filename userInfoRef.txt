@@ -1,0 +1,76 @@
+user 
+UserImpl {providerId: 'firebase', proactiveRefresh: ProactiveRefresh, reloadUserInfo: {…}, reloadListener: null, uid: 'uPAiC2UN2XOK1QKyEq2asqSTRNQ2', …}
+accessToken: "eyJhbGciOiJSUzI1NiIsImtpZCI6IjBkMGU4NmJkNjQ3NDBjYWQyNDc1NjI4ZGEyZWM0OTZkZjUyYWRiNWQiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vcHQtZmluZGVyLTZlYWRhIiwiYXVkIjoicHQtZmluZGVyLTZlYWRhIiwiYXV0aF90aW1lIjoxNjk4NTU2NTQ0LCJ1c2VyX2lkIjoidVBBaUMyVU4yWE9LMVFLeUVxMmFzcVNUUk5RMiIsInN1YiI6InVQQWlDMlVOMlhPSzFRS3lFcTJhc3FTVFJOUTIiLCJpYXQiOjE2OTg1NTY1NDQsImV4cCI6MTY5ODU2MDE0NCwiZW1haWwiOiJ0ZXN0MkBuYXZlci5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsidGVzdDJAbmF2ZXIuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.K9OWNYxOhx3XLlbwTUd_wS0fZTU_vR5PrlrwZI7-hUaRUtFtpLKvznRunu_Ujp6uAJCW3uEXrdTgLPgiREONFgoMij7I0KKKDZt1hoW3GtsH546FcNNTP5WOXi_-eMH3IIAylJXFzu-dTY12_uUCl5JTfgdEUkRvwKPr35FE0cOEDf3zt-ONUiVju9L0wg7nS8vI-YRrLspnKBlMct_5j14LPitKOe7EfVs6MBYBIQIRqp3y4vRGSTsa-1qySWmbAgD1HF15GBMxElLmhVkI-Jz1DeT6Lt3JZ0fLPr7gfPl4_1E-zAC3TKL3eHJVi35P-PifsZmO0eCs8BGVR1EU2Q"
+auth: AuthImpl {app: FirebaseAppImpl, heartbeatServiceProvider: Provider, appCheckServiceProvider: Provider, config: {…}, currentUser: UserImpl, …}
+displayName: null
+email: "test2@naver.com"
+emailVerified: false
+isAnonymous: false
+metadata: UserMetadata {createdAt: '1698556543899', lastLoginAt: '1698556543899', lastSignInTime: 'Sun, 29 Oct 2023 05:15:43 GMT', creationTime: 'Sun, 29 Oct 2023 05:15:43 GMT'}
+phoneNumber: null
+photoURL: null
+proactiveRefresh: ProactiveRefresh {user: UserImpl, isRunning: false, timerId: null, errorBackoff: 30000}
+providerData: [{…}]
+providerId: "firebase"
+reloadListener: null
+reloadUserInfo: {localId: 'uPAiC2UN2XOK1QKyEq2asqSTRNQ2', email: 'test2@naver.com', passwordHash: 'UkVEQUNURUQ=', emailVerified: false, passwordUpdatedAt: 1698556543899, …}
+stsTokenManager:  StsTokenManager {refreshToken: 'AMf-vBzdgJGRPdVwlj6IpKF4pS-Acf6vJ9yeXlpGUbYF1FGeKf…XzuJaVi6UNvgcfcj_Ro7kwf7khJkfqGisr0DqasjmmomlRrWg', accessToken: 'eyJhbGciOiJSUzI1NiIsImtpZCI6IjBkMGU4NmJkNjQ3NDBjYW…r7gfPl4_1E-zAC3TKL3eHJVi35P-PifsZmO0eCs8BGVR1EU2Q', expirationTime: 1698560144372}
+tenantId: null
+uid: "uPAiC2UN2XOK1QKyEq2asqSTRNQ2"
+refreshToken: "AMf-vBzdgJGRPdVwlj6IpKF4pS-Acf6vJ9yeXlpGUbYF1FGeKfJse_Pyp8-y0slv433uQ6Bv1SvRfU-3P4WLEkzbeH4XfYBEAkHIIft7ZLojqVepha46AbckWVkd_I1AvuT4Wjcm2uiAq1q4LHC15VWpXJ1ie3UWyf038BIQIjTtOTUQOXzuJaVi6UNvgcfcj_Ro7kwf7khJkfqGisr0DqasjmmomlRrWg"
+[[Prototype]]: Object
+
+user
+: 
+UserImpl
+accessToken
+: 
+"eyJhbGciOiJSUzI1NiIsImtpZCI6IjBkMGU4NmJkNjQ3NDBjYWQyNDc1NjI4ZGEyZWM0OTZkZjUyYWRiNWQiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoi7Jik7Iuc7ZuIIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0xDMGJJQmRUZi1sUTRVY28xUU1kZThiRDV4VGZ2WnZmcVRUdEtpSm1UT0lfYz1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9wdC1maW5kZXItNmVhZGEiLCJhdWQiOiJwdC1maW5kZXItNmVhZGEiLCJhdXRoX3RpbWUiOjE2OTg2NzA3ODAsInVzZXJfaWQiOiJra21DOVp3RmFnUjRqUmFJR0I0N3F6em1Ka20xIiwic3ViIjoia2ttQzlad0ZhZ1I0alJhSUdCNDdxenptSmttMSIsImlhdCI6MTY5ODY3MDc4MCwiZXhwIjoxNjk4Njc0MzgwLCJlbWFpbCI6Im9oc2gwNzMxQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7Imdvb2dsZS5jb20iOlsiMTAzMDE3NjQxMTY2MDExMTM0Njc1Il0sImVtYWlsIjpbIm9oc2gwNzMxQGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6Imdvb2dsZS5jb20ifX0.IY9ynThqUAe7QpqnfhTpSoSYIWxvZ88qQEt_dMu-hIW-4BDj4we2MdUJqB6Y9Xwsx7Pdz9CimzWLpbXHMbwhTe6mxlN8t1xtCc82If-P1AUcEa6MO28G3N2AL-Gi0aMZ-nP_3r9gLBmXNsj_ORrzgq0tC3_nixE6u0rggdAdpYGtJvRPN96ah46aVfPMtHA3JND48YkBOLwKrMPkzdgtMxHDry3rf_zwHjPJshU4w3LXAEK21UUczARjzElTCS5oXIjWojxjKk1LZUuPFH7aRuCCudRXPjlXgpxP-OtsW0IyVn2WPn6DdvknmU4y44ufp5jQN6bGrAOyFRIQ_YYn0w"
+auth
+: 
+AuthImpl {app: FirebaseAppImpl, heartbeatServiceProvider: Provider, appCheckServiceProvider: Provider, config: {…}, currentUser: UserImpl, …}
+displayName
+: 
+"오시훈"
+email
+: 
+"ohsh0731@gmail.com"
+emailVerified
+: 
+true
+isAnonymous
+: 
+false
+metadata
+: 
+UserMetadata {createdAt: '1698670779964', lastLoginAt: '1698670779965', lastSignInTime: 'Mon, 30 Oct 2023 12:59:39 GMT', creationTime: 'Mon, 30 Oct 2023 12:59:39 GMT'}
+phoneNumber
+: 
+null
+photoURL
+: 
+"https://lh3.googleusercontent.com/a/ACg8ocLC0bIBdTf-lQ4Uco1QMde8bD5xTfvZvfqTTtKiJmTOI_c=s96-c"
+proactiveRefresh
+: 
+ProactiveRefresh {user: UserImpl, isRunning: false, timerId: null, errorBackoff: 30000}
+providerData
+: 
+[{…}]
+providerId
+: 
+"firebase"
+reloadListener
+: 
+null
+reloadUserInfo
+: 
+{localId: 'kkmC9ZwFagR4jRaIGB47qzzmJkm1', email: 'ohsh0731@gmail.com', displayName: '오시훈', photoUrl: 'https://lh3.googleusercontent.com/a/ACg8ocLC0bIBdTf-lQ4Uco1QMde8bD5xTfvZvfqTTtKiJmTOI_c=s96-c', emailVerified: true, …}
+stsTokenManager
+: 
+StsTokenManager {refreshToken: 'AMf-vBykI3Z6PzhFdMnJIcvGOkFf0nrBdUXdPaWbv2nuyXGUJc…f--UwuJW0aZRCVA6Cf6HMBK78cLybOsLmZLgWUgjpfMzvosps', accessToken: 'eyJhbGciOiJSUzI1NiIsImtpZCI6IjBkMGU4NmJkNjQ3NDBjYW…OtsW0IyVn2WPn6DdvknmU4y44ufp5jQN6bGrAOyFRIQ_YYn0w', expirationTime: 1698674380353}
+tenantId
+: 
+null
+uid
+: 
+"kkmC9ZwFagR4jRaIGB47qzzmJkm1

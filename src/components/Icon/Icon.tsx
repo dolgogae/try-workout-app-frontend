@@ -32,7 +32,7 @@ const Icon = ({ type, alt = '', ...restProps }: IIconProps) => {
       throw new Error('지원하는 아이콘 타입이 존재하지 않습니다.');
   }
 
-  return <Image src={src} alt={alt} {...restProps} />
+  return <Image src={src} alt={alt} style={{ border: 'none' }}  {...restProps} />
 }
 
 export default Icon
