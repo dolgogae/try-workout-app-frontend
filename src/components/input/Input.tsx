@@ -11,7 +11,6 @@ interface IInputProps {
   icon?: 'letter' | 'lock' | 'show' | 'hide';
   email?: boolean;
   password?: boolean;
-  search?: boolean;
   placeholder?: string;
   readonly?: boolean;
   disabled?: boolean;
@@ -20,7 +19,6 @@ interface IInputProps {
   className?: string;
   introClassName?: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  onSearch: any;
   [x: string]: any;
 }
 
@@ -33,7 +31,6 @@ const Input = ({
   icon,
   email,
   password,
-  search,
   searchUrl,
   placeholder = '',
   readOnly,
@@ -43,7 +40,6 @@ const Input = ({
   className = '',
   introClassName = '',
   onChange,
-  onSearch,
   ...restProps
 }: IInputProps) => {
 
@@ -104,16 +100,6 @@ const Input = ({
           </button>
         ) : null}
 
-        {search ? (
-          <button
-            type='button'
-            className={styles.button}
-            onClick={onSearch}
-            disabled={disabled}
-          >
-            Search
-          </button>
-        ) : null} 
       </div>
       {errorProp && (
         <span role='alert' className={styles.error}>

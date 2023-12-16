@@ -4,12 +4,12 @@ import React, { useEffect, useState } from 'react'
 import styles from '../../login/Auth.module.scss';
 import Textarea from '@/components/textarea/Textarea';
 import Button from '@/components/button/Button';
-import Input from '@/components/input/Input';
 import Checkbox from '@/components/checkbox/Checkbox';
 import classNames from 'classnames';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { useSearchParams } from "next/navigation";
+import { useRouter } from 'next/navigation';
 
 interface ITrainerProps {
   userId: number;
@@ -26,6 +26,8 @@ const RegisterTrainer = () => {
   
   const params = useSearchParams();
   const userId = Number(params.get('userId'));
+
+  const router = useRouter();
 
   useEffect(() => {
     if(isHealth){
@@ -44,14 +46,12 @@ const RegisterTrainer = () => {
   const fetchCreateTrainer = async ({
     userId,
     introduction,
-    // gymId,
     trainerType
   }: ITrainerProps) => {
     try {
       const response = await axios.post('http://localhost:8080/api/trainer', {
         userId,
         introduction,
-        // gymId,
         trainerType
       })
 
@@ -65,7 +65,7 @@ const RegisterTrainer = () => {
   const registerTrainer = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if(!isHealth){
+    if(!isHealth && !isPilates){
       return toast.error(`트레이너 정보를 입력해주세요.`);
     }
     if(!introduction){
@@ -75,6 +75,8 @@ const RegisterTrainer = () => {
     // trainer create api 호출
     const result = fetchCreateTrainer({userId, introduction, trainerType});
     
+    toast.success("트레이너 생성 성공...");
+    router.push('/');
   }
 
   return (
