@@ -26,8 +26,12 @@ const RegisterTrainer = () => {
   
   const params = useSearchParams();
   const userId = Number(params.get('userId'));
-
   const router = useRouter();
+
+  if(!userId){
+    console.error("로그인을 완료해주세요.")
+    router.push('/login');
+  }
 
   useEffect(() => {
     if(isHealth){
