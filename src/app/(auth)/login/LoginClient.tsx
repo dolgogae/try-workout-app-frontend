@@ -2,7 +2,6 @@
 import Image from "next/image";
 import React, { useState } from "react";
 
-import axios from "axios";
 import GoogleLogoPath from "@/assets/googleLogo.png";
 import { useRouter } from "next/navigation";
 
@@ -13,13 +12,8 @@ import Divider from "@/components/divider/Divider";
 import Button from "@/components/button/Button";
 import Link from "next/link";
 import { toast } from "react-toastify";
-import {
-  GoogleAuthProvider,
-  signInWithEmailAndPassword,
-  signInWithPopup,
-} from "firebase/auth";
-import { auth } from "@/firebase/firebase";
 import Input from "@/components/input/Input";
+import axios from "@/api/axios";
 
 const LoginClient = () => {
 
@@ -30,90 +24,40 @@ const LoginClient = () => {
   
   const router = useRouter();
 
-
   const redirectUser = () => {
     router.push("/");
   };
 
   const fetchLogin = async (email: string, password: string) => {
     try {
-      const response = await axios.post('http://localhost:8080/api/auth/login', {
+      const response = await axios.post('/api/auth/login', {
         email,
         password,
       });
-  
-      console.log('로그인 성공:', response.data);
+      // TODO: trainer 나 member 정보가 아직 없을시 (token parse -> id -> trainer/membrer 조회시 없으면 redirect /register/member or trainer
       return response.data;
     } catch (error) {
-      console.error('로그인 실패:', error);
       throw error;
     }
   };
-
-  const isExistBefore = async (email: string, accountType: string) => {
-    try {
-      const response = await axios.get('http://localhost:8080/api/user/get/login?email='
-                                        + email + '&accountType=' + accountType);
-
-      return response.data;
-    } catch (error){
-      console.error('조회 실패: ', error);
-      throw error;
-    }
-  }
 
   const loginUser = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // toast.info("성공!");
     setIsLoading(true);
 
-    signInWithEmailAndPassword(auth, email, password)
-      .then(async (_result) => {
-        console.log("user: ", _result);
-        console.log("email: ", email);
-        console.log("password: ", password);
-        setIsLoading(false);
-        // toast.success("로그인에 성공했습니다.");
-
-        // TODO
-        // 트레이너인지 일반 사용자인지 체크 박스 통해서 추가 정보 받는거 구현해야함
-        const result = await fetchLogin(email, password);
-
-        redirectUser();
-      })
-      .catch((error) => {
-        setIsLoading(false);
-        toast.error(error.message);
-      });
+    fetchLogin(email, password)
+        .then(async (result) => {
+          setIsLoading(false);
+          redirectUser(); // 로그인 성공 후 리디렉션
+        })
+        .catch((error) => {
+          setIsLoading(false);
+          toast.error(error.message); // 로그인 실패 시 에러 메시지 표시
+        });
   };
 
   const signInWithGoogle = () => {
-    const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider)
-      .then(async (_result) => {
-        console.log("user: ", _result.user.email);
-        toast.success("로그인에 성공했습니다.");
-
-        const googleEmail = _result.user.email ? _result.user.email : '';
-        setEmail(googleEmail);
-        setPassword(googleEmail);
-
-        // TODO
-        // 1. 이전에 가입했던 이력이 있는지 체크 
-        const googleUser = await isExistBefore(email, 'GOOGLE');
-        // 2. 없으면 추가 정보 받아서 저장
-        if(googleUser){
-          const result = await fetchLogin(email, password);
-          redirectUser();
-        } else {
-          // 추가정보 받는 페이지 만들어야함
-          // const result = await fetchSignUp({user, username, email, password, userRole, accountType});
-        }
-
-      })
-      .catch((error) => {
-        toast.error(error.message);
-      });
+    // Google login
   };
 
   return (
