@@ -8,11 +8,9 @@ import Divider from "@/components/divider/Divider";
 import Link from "next/link";
 
 import { toast } from "react-toastify";
-import { User, createUserWithEmailAndPassword, deleteUser } from "firebase/auth";
-import { auth } from "@/firebase/firebase";
 import Input from "@/components/input/Input";
-import axios from "axios";
 import UserCheckbox from "@/components/userCheckbox/UserCheckbox";
+import axios from "@/api/axios";
 
 interface NormalUserInfo {
   username: string;
@@ -25,7 +23,6 @@ interface TrainerInfo{
 }
 
 interface SignUpProp {
-  user: User;
   username: string;
   email: string;
   password: string;
@@ -35,26 +32,23 @@ interface SignUpProp {
 
 
 export const fetchSignUp = async ({
-  user, 
-  username, 
+  username,
   email, 
   password, 
   userRole, 
   accountType
 }: SignUpProp) => {
   try {
-    const response = await axios.post('http://localhost:8080/api/auth/sign-up', {
+    console.log('API URL:', process.env.REACT_APP_API_URL);
+    const response = await axios.post('/api/auth/sign-up', {
       username,
       email,
       password,
       userRole,
       accountType
     });
-    console.log('로그인 성공:', response.data);
     return response.data;
   } catch (error) {
-    deleteUser(user);
-    console.error('로그인 실패:', error);
     throw error;
   }
 };
@@ -99,30 +93,23 @@ const RegisterClient = () => {
 
     setIsLoading(true);
 
-    createUserWithEmailAndPassword(auth, email, password)
-      .then(async (userCredential) => {
-        const user: User = userCredential.user;
-        console.log("user", user);
+    // 소셜 로그인이 아닌 회원가입(NORMAL)
+    const accountType = "NORMAL";
+    fetchSignUp({ username, email, password, userRole, accountType })
+        .then(result => {
+          setIsLoading(false);
+          toast.success("등록 성공...");
 
-        // send signup info to backend(localhost:8080/auth/sign-up)
-        // 생각해볼 점: firebase에서 가입시 accessToken, refreshToken을 모두 주는데 
-        //           backend에서 추가적으로 한번 더 말아올리는게 의미가 있나? -> 관리적 측면에서 있을지도
-        const accountType = "NORMAL";
-        const result = await fetchSignUp({user, username, email, password, userRole, accountType});
-
-        setIsLoading(false);
-
-        toast.success("등록 성공...");
-        if(isTrainer){
-          router.push(`/register/trainer?userId=`+result.data.id);
-        } else if(isMember){
-          router.push("/register/member")
-        }
-      })
-      .catch((error) => {
-        setIsLoading(false);
-        toast.error(error.message);
-      });
+          if (isTrainer) {
+            router.push(`/register/trainer?userId=` + result.id);
+          } else if (isMember) {
+            router.push("/register/member");
+          }
+        })
+        .catch((error) => {
+          setIsLoading(false);
+          toast.error(error.message);
+        });
   };
 
   return (
